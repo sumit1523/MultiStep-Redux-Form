@@ -17,7 +17,26 @@ const validate = values => {
   if (!values.favoriteColor) {
     errors.favoriteColor = 'Required';
   }
+  if (!values.employed1) {
+    errors.employed1 = 'Required';
+  }
+  if (!values.employed2) {
+    errors.employed2 = 'Required';
+  }
+  if (!values.employed3) {
+    errors.employed3 = 'Required';
+  }
   return errors;
 };
 
 export default validate;
+
+// Display only one error message
+// const validatePassword = (values) => {
+//   let abc = values.employed1 && values.employed2 && values.employed3
+//   return abc;
+// };
+
+//   if (!validatePassword(values)) {
+//   errors.employed1 = 'Required';
+// }
