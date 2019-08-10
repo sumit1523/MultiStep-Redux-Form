@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import WizardFormFirstPage from './WizardFormFirstPage';
 import WizardFormSecondPage from './WizardFormSecondPage';
 import WizardFormThirdPage from './WizardFormThirdPage';
+import ProgressDot from './ProgressDot';
+
 class WizardForm extends Component {
   state = {
     page: 1,
@@ -25,6 +27,7 @@ class WizardForm extends Component {
     const { page } = this.state;
     return (
       <div>
+        <ProgressDot page={page} />
         {page === 1 &&
           <WizardFormFirstPage onSubmit={this.nextPage} />
         }
