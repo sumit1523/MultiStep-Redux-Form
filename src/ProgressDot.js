@@ -1,10 +1,17 @@
 import React from 'react';
 
-const ProgressDot = ({ page }) =>
-    <div>
-        <span className={page === 1 ? 'dotBlue' : 'dotGrey' && page < 1 ? 'dotGrey' : 'dotGreen'} >1</span>
-        <span className={page === 2 ? 'dotBlue' : 'dotGrey' && page < 2 ? 'dotGrey' : 'dotGreen'} >2</span>
-        <span className={page === 3 ? 'dotBlue' : 'dotGrey' && page < 3 ? 'dotGrey' : 'dotGreen'}>3</span>
-    </div>
-
+const random = (currentpage, totalPage) => {
+    let dots = [];
+    for (let i = 1; i <= totalPage; i++) {
+        dots.push(<span className={currentpage === i ? 'dotBlue' : 'dotGrey' && currentpage < i ? 'dotGrey' : 'dotGreen'} key={i}>{i}</span>)
+    }
+    return dots
+}
+const ProgressDot = ({ currentpage, totalPage }) =>
+    <>
+        {
+            random(currentpage, totalPage)
+        }
+    </>
 export default ProgressDot;
+    // className={ `grey currentpage==i?"blue":i<currentpage?"gree":""`}

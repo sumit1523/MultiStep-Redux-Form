@@ -7,37 +7,38 @@ import ProgressDot from './ProgressDot';
 
 class WizardForm extends Component {
   state = {
-    page: 1,
+    currentpage: 1,
+    totalPage: 3
   }
   nextPage = () => {
     this.setState({
-      page: this.state.page + 1,
+      currentpage: this.state.currentpage + 1,
     });
   }
 
   previousPage = () => {
     this.setState({
-      page: this.state.page - 1,
+      currentpage: this.state.currentpage - 1,
 
     });
   }
 
   render() {
     const { onSubmit } = this.props;
-    const { page } = this.state;
+    const { currentpage, totalPage } = this.state;
     return (
       <div>
-        <ProgressDot page={page} />
-        {page === 1 &&
+        <ProgressDot currentpage={currentpage} totalPage={totalPage} />
+        {currentpage === 1 &&
           <WizardFormFirstPage onSubmit={this.nextPage} />
         }
-        {page === 2 &&
+        {currentpage === 2 &&
           <WizardFormSecondPage
             previousPage={this.previousPage}
             onSubmit={this.nextPage}
           />
         }
-        {page === 3 &&
+        {currentpage === 3 &&
           <WizardFormThirdPage
             previousPage={this.previousPage}
             onSubmit={onSubmit}
@@ -53,3 +54,8 @@ WizardForm.propTypes = {
 };
 
 export default WizardForm;
+
+
+
+
+
